@@ -1,0 +1,65 @@
+// paste the ABI you already have here
+export const stakingAbi = [
+  {
+    name: "stake",
+    type: "function",
+    inputs: [{ name: "amount", type: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    name: "withdraw",
+    type: "function",
+    inputs: [{ name: "amount", type: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    name: "claimRewards",
+    type: "function",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    name: "emergencyWithdraw",
+    type: "function",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    name: "getUserDetails",
+    type: "function",
+    inputs: [{ name: "_user", type: "address" }],
+    outputs: [
+      { name: "stakedAmount", type: "uint256" },
+      { name: "lastStakeTimestamp", type: "uint256" },
+      { name: "pendingRewards", type: "uint256" },
+      { name: "timeUntilUnlock", type: "uint256" },
+      { name: "canWithdraw", type: "bool" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    name: "totalStaked",
+    type: "function",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    name: "currentRewardRate",
+    type: "function",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    name: "initialApr",
+    type: "function",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+] as const;
