@@ -4,16 +4,21 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi"
 import { toast } from "react-hot-toast"
 import { stakingAbi, STAKING_CONTRACT_ADDRESS } from "@/config/contracts"
 
-export function EmergencyWithdrawButton({ refetch }: { refetch?: () => void }) {
+export function EmergencyWithdrawButton({ amount, refetch }: { amount: string, refetch?: () => void }) {
   const { data: hash, writeContract, isPending } = useWriteContract()
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({ hash })
 
   const handleEmergencyWithdraw = async () => {
+    if (!amount || Number(amount) <= 0) {
+      toast.error("Please enter a valid amount");
+      return;
+    }
     try {
       await writeContract({
         abi: stakingAbi,
         address: STAKING_CONTRACT_ADDRESS,
         functionName: "emergencyWithdraw",
+        args: [BigInt(amount) * 10n ** 18n],
       })
       toast.success("Emergency withdrawal submitted")
       refetch?.()

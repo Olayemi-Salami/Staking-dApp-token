@@ -57,7 +57,7 @@ export const stakingAbi = [ // Write functions
                       outputs: [{ name: '', type: 'uint256' }], 
                       stateMutability: 'view', }, ] as const
                       
-export const stakingTokenAbi = [[
+export const stakingTokenAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -389,7 +389,7 @@ export const stakingTokenAbi = [[
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-] ] as const;
+] as const;
 
 export const STAKING_CONTRACT_ADDRESS = "0x9b9e2Cb1A05f2117b4027dD6d72800adc0d4fa20";
 export const STAKING_TOKEN_ADDRESS = "0xcD6a42782d230D7c13A74ddec5dD140e55499Df9"; // USDC Sepolia

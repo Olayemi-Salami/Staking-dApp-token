@@ -1,19 +1,10 @@
-"use client"
+"use client";
 
-import { useAccount, useReadContract } from "wagmi"
-import { stakingAbi, STAKING_CONTRACT_ADDRESS } from "@/config/contracts"
-import { ApproveButton } from "@/components/buttons/ApproveButton"
-import { StakeButton } from "@/components/buttons/StakeButton"
-// import { WithdrawButton } from "@/components/buttons/WithdrawButton"
-import { ClaimButton } from "@/components/buttons/ClaimButton"
-import { EmergencyWithdrawButton } from "@/components/buttons/EmergencyWithdrawButton"
-import { useState } from "react"
+import { useAccount, useReadContract } from "wagmi";
+import { stakingAbi, STAKING_CONTRACT_ADDRESS } from "@/config/contracts";
 
 export default function UserDashboard() {
-  const { address } = useAccount()
-  const [refreshIndex, setRefreshIndex] = useState(0)
-
-  const refetch = () => setRefreshIndex((prev) => prev + 1)
+  const { address } = useAccount();
 
   const { data: userDetails } = useReadContract({
     abi: stakingAbi,
@@ -26,17 +17,19 @@ export default function UserDashboard() {
       staleTime: 0,
       cacheTime: 0,
       refetchInterval: 10000,
-      queryKey: ["user", address, refreshIndex],
+      queryKey: ["user", address],
     },
-  })
+  });
 
   if (!address) {
     return (
       <div className="bg-gradient-to-br from-purple-800 via-purple-900 to-black rounded-2xl shadow-lg p-6 text-center text-white">
         <h2 className="text-2xl font-bold mb-2">User Dashboard</h2>
-        <p className="text-gray-300">Please connect your wallet to view your staking details.</p>
+        <p className="text-gray-300">
+          Please connect your wallet to view your staking details.
+        </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -69,15 +62,6 @@ export default function UserDashboard() {
           </p>
         </div>
       </div>
-
-      {/* Action Buttons */}
-      <div className="flex flex-wrap gap-3">
-        <ApproveButton refetch={refetch} />
-        <StakeButton refetch={refetch} />
-        {/* <WithdrawButton refetch={refetch} /> */}
-        <ClaimButton refetch={refetch} />
-        <EmergencyWithdrawButton refetch={refetch} />
-      </div>
     </div>
-  )
+  );
 }
