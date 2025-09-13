@@ -8,7 +8,7 @@ export default function Header() {
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({
     address,
-    token: STAKING_TOKEN_ADDRESS, // ERC20 token (USDC Sepolia)
+    token: STAKING_TOKEN_ADDRESS, 
     watch: true,
   });
 

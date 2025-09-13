@@ -4,7 +4,7 @@ import { useAccount, useReadContract } from "wagmi"
 import { stakingAbi, STAKING_CONTRACT_ADDRESS } from "@/config/contracts"
 import { ApproveButton } from "@/components/buttons/ApproveButton"
 import { StakeButton } from "@/components/buttons/StakeButton"
-import { WithdrawButton } from "@/components/buttons/WithdrawButton"
+// import { WithdrawButton } from "@/components/buttons/WithdrawButton"
 import { ClaimButton } from "@/components/buttons/ClaimButton"
 import { EmergencyWithdrawButton } from "@/components/buttons/EmergencyWithdrawButton"
 import { useState } from "react"
@@ -74,7 +74,7 @@ export default function UserDashboard() {
       <div className="flex flex-wrap gap-3">
         <ApproveButton refetch={refetch} />
         <StakeButton refetch={refetch} />
-        <WithdrawButton refetch={refetch} />
+        {/* <WithdrawButton refetch={refetch} /> */}
         <ClaimButton refetch={refetch} />
         <EmergencyWithdrawButton refetch={refetch} />
       </div>

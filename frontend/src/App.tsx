@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { ApproveButton } from "@/components/buttons/ApproveButton";
 import { StakeButton } from "@/components/buttons/StakeButton";
-import { WithdrawButton } from "@/components/buttons/WithdrawButton";
+// import { WithdrawButton } from "@/components/buttons/WithdrawButton";
 import { ClaimButton } from "@/components/buttons/ClaimButton";
 import { EmergencyWithdrawButton } from "@/components/buttons/EmergencyWithdrawButton";
 import UserDashboard from "@/components/UserDashboard";
@@ -18,7 +18,7 @@ export default function App() {
         <div className="space-y-3">
           <ApproveButton />
           <StakeButton />
-          <WithdrawButton />
+          {/* <WithdrawButton /> */}
           <ClaimButton />
           <EmergencyWithdrawButton />
         </div>
